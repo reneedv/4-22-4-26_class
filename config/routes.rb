@@ -1,4 +1,7 @@
 ClassMangmnt::Application.routes.draw do
+  resources :blogs
+
+
   resources :students
 
   root to: 'students#index'

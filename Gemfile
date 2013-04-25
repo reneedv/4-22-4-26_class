@@ -7,8 +7,11 @@ gem 'rails', '3.2.13'
 
 gem 'sqlite3'
 
-group :test, :development do
+group :test do
   gem 'rspec-rails'
+  gem 'cucumber-rails'
+  gem 'capybara'
+  gem 'database_cleaner'
 end
 
 
