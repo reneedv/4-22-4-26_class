@@ -1,0 +1,15 @@
+%h1 All students
+%table{id: 'test_table', class: 'test'}
+  %tr
+    %th Full name
+    %th Title
+    %th
+    %th
+  - @students.each do |student|
+    %tr
+      %td= link_to student.full_name, student
+      %td= student.title
+      %td= link_to 'Edit', edit_student_path(student)
+      %td= link_to 'Destroy', student, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Student', new_student_path
