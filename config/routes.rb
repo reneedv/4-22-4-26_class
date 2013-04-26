@@ -1,4 +1,7 @@
 ClassMangmnt::Application.routes.draw do
+  resources :cookies
+
+
   devise_for :students
 
   resources :assignments

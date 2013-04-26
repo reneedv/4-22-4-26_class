@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Rescipe:
+  = @cooky.rescipe
+
+= link_to 'Edit', edit_cooky_path(@cooky)
+\|
+= link_to 'Back', cookies_path
