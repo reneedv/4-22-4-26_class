@@ -1,4 +1,5 @@
 class AssignmentsController < ApplicationController
+  before_filter :authenticate_student!, except: [:index]
   # GET /assignments
   # GET /assignments.json
   def index
@@ -6,7 +7,7 @@ class AssignmentsController < ApplicationController
     @completed_assignments = Assignment.completed
 
     respond_to do |format|
-      format.html { render 'index', layout: false }
+      format.html
       format.json { render json: @assignments }
     end
   end
