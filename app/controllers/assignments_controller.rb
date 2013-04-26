@@ -6,7 +6,7 @@ class AssignmentsController < ApplicationController
     @completed_assignments = Assignment.completed
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render 'index', layout: false }
       format.json { render json: @assignments }
     end
   end
