@@ -1,7 +1,4 @@
-%h1 Editing cooky
-
-= render 'form'
-
-= link_to 'Show', @cooky
-\|
-= link_to 'Back', cookies_path
+- model_class = Cookie
+.page-header
+  %h1=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human
+= render :partial => "form"

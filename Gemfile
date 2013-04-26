@@ -7,6 +7,7 @@ gem 'rails', '3.2.13'
 
 gem 'devise'
 gem 'haml-rails'
+gem 'twitter-bootstrap-rails'
 
 group :production do
   gem 'pg'

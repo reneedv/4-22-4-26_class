@@ -1,19 +1,21 @@
-%h1 Listing cookies
-
-%table
-  %tr
-    %th Rescipe
-    %th
-    %th
-    %th
-
-  - @cookies.each do |cooky|
+- model_class = Cookie
+.page-header
+  %h1=t '.title', :default => model_class.model_name.human.pluralize
+%table.table.table-striped
+  %thead
     %tr
-      %td= cooky.rescipe
-      %td= link_to 'Show', cooky
-      %td= link_to 'Edit', edit_cooky_path(cooky)
-      %td= link_to 'Destroy', cooky, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %th= model_class.human_attribute_name(:id)
+      %th= model_class.human_attribute_name(:rescipe)
+      %th= model_class.human_attribute_name(:created_at)
+      %th=t '.actions', :default => t("helpers.actions")
+  %tbody
+    - @cookies.each do |cookie|
+      %tr
+        %td= link_to cookie.id, cookie_path(cookie)
+        %td= cookie.rescipe
+        %td=l cookie.created_at
+        %td
+          = link_to t('.edit', :default => t("helpers.links.edit")), edit_cookie_path(cookie), :class => 'btn btn-mini'
+          = link_to t('.destroy', :default => t("helpers.links.destroy")), cookie_path(cookie), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-mini btn-danger'
 
-%br
-
-= link_to 'New Cookie', new_cooky_path
+= link_to t('.new', :default => t("helpers.links.new")), new_cookie_path, :class => 'btn btn-primary'
